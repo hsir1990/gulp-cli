@@ -1,0 +1,22 @@
+{
+  "name": "hsir1990",
+  "version": "1.0.0",
+  "description": "gulp插件测试",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hsir1990/gulp-cli.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hsir1990/gulp-cli/issues"
+  },
+  "homepage": "https://github.com/hsir1990/gulp-cli#readme",
+  "devDependencies": {
+    "gulp": "^4.0.0"
+  }
+}
