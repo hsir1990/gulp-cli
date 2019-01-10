@@ -1,3 +1,6 @@
 body{
-    background-color: #0f0; 
+    background: #f00;
+}
+h2{
+    font: 100;
 }
