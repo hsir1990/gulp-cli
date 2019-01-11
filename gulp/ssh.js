@@ -4,12 +4,13 @@ fs = require('fs');
 
 let ssh1 = {
     config: {
-        "host": '47.92.48.X',
-        "username": 'X',
-        "password": 'X',
+        // 链接公司的可以，但是链接自己服务器旧不行
+        "host": '47.92.48.x',
+        "username": 'x',
+        "password": 'x',
         "port": 22,
-        "ignoreErrors": true,
-        // "privateKey": fs.readFileSync('/Users/dongmian/.ssh/id_rsa')
+        // "ignoreErrors": true,
+        privateKey: fs.readFileSync('/Users/dongmian/.ssh/id_rsa')
 
         // privateKey: fs.readFileSync('/root/dist')
       },

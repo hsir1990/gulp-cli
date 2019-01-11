@@ -12,7 +12,13 @@ let server = () => {
                 directoryListing: {
                     enable: true,
                     path: './dist'
-                }
+                },
+                proxies: [
+                    {
+                        source: '/api', target: 'http://www.hsir.com/api'//source 代理名称，target要代理的地址，用这个代理就行http://localhost.zongheng.com:8073/api/forums/details/postList
+                    }
+                  ]
+        
             }))
 }
 
