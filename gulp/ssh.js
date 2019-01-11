@@ -4,11 +4,13 @@ fs = require('fs');
 
 let ssh1 = {
     config: {
-        "host": '47.92.48.144',
-        "username": 'root',
-        "password": 'Hsir190',
+        "host": '47.92.48.X',
+        "username": 'X',
+        "password": 'X',
         "port": 22,
-        "ignoreErrors": false
+        "ignoreErrors": true,
+        // "privateKey": fs.readFileSync('/Users/dongmian/.ssh/id_rsa')
+
         // privateKey: fs.readFileSync('/root/dist')
       },
 
