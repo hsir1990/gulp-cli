@@ -1,12 +1,14 @@
 const rev = require('gulp-rev'),
-sass = require('gulp-sass');
+sass = require('gulp-sass'),
+concat = require('gulp-concat'),//合并scss
+cleanCss = require('gulp-clean-css');// 压缩css
 
 
-
+let src = PATH_MODULE.sass.src,
+    dist = PATH_MODULE.sass.dist;
 let func = {
     sass: function(){
-        let src = PATH_MODULE.sass.src,
-            dist = PATH_MODULE.sass.dist;
+        
             // console.log(src, dist)
         return  gulp
                 .src(src)
@@ -25,7 +27,21 @@ let func = {
                 // .pipe(rev.manifest())//生成文件映射
                 // .pipe(gulp.dest('rev/sass'))//将映射文件导出到rev/sass
                 // .pipe(gulpprint.default(filepath => `Finished: ${filepath}`));
+                // 综合的
+                .pipe(concat('all.css'))
+                .pipe(cleanCss())
+                .pipe(gulp.dest( dist[0]+'/concat'))
 
+    },
+
+    // 分步骤的
+    css: function(){
+        console.log(dist[0]+'*.css',111)
+        return gulp
+               .src(dist[0]+'/*.css')
+               .pipe(concat('all.css'))
+               .pipe(cleanCss())
+               .pipe(gulp.dest( dist[0]+'/concat'))
     }
 }
 
