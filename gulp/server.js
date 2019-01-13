@@ -5,7 +5,7 @@ let server = () => {
             .src('./dist')
             .pipe(webServer({
                 host: '0.0.0.0',
-                port: "8081",
+                port: "8083",
                 allowEmpty:true,
                 livereload: {enable:true,port:35280},
                 open: false,

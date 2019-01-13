@@ -9,6 +9,7 @@ global.plumber = require('gulp-plumber');
 //清除文件
 clean = require('gulp-clean');
 
+
 // 定义路径
 global.PATH_MODULE = {
     // html
@@ -74,7 +75,7 @@ function watch(){
 // gulp.task('series', gulp.series('text'));
 gulp.task('clean', gulp.series(aa))
 // 并行
-// gulp.task('parallel', gulp.series(sassGulp, cssGulp, jsGulp,  htmlGulp, imgGulp, serverGulp, watch));
+// gulp.task('parallel', gulp.parallel(sassGulp, cssGulp, jsGulp,  htmlGulp, imgGulp, serverGulp, watch));
 
 // 传送服务器
 gulp.task('ssh', gulp.series(sshGulp))
@@ -83,4 +84,4 @@ gulp.task('ssh', gulp.series(sshGulp))
 gulp.task('dev', gulp.series(serverGulp, watch));
 
 //构建
-gulp.task('build', gulp.series(sassGulp, cssGulp, jsGulp,  htmlGulp, imgGulp));
+gulp.task('build', gulp.series(sassGulp, cssGulp, jsGulp, imgGulp, htmlGulp));

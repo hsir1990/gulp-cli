@@ -3,7 +3,9 @@ const gulpHtml = require('gulp-htmlmin'),
 // 引用头部信息
 fileInclude = require('gulp-file-include'),
 // 添加版本号
-revCollector = require('gulp-rev-collector');
+revCollector = require('gulp-rev-collector')
+//替换
+replace = require('gulp-replace');
 
 
 let func = {
@@ -28,6 +30,7 @@ let func = {
         return  gulp
         // 路径引错了，竟然不报错！！
                 .src(['./rev/css/*.json',src[0]])
+                .pipe(replace(/src="(.*?)\/js\/(.*?).js"/g, 'src="../js/$2.js?v=' + new Date().valueOf() + '"'))
                 .pipe(plumber())
                 .pipe(newers({
                     // 需要加上后分割线
@@ -35,12 +38,12 @@ let func = {
                     ext: '.html'
                 }))
                 .pipe(revCollector({
-                    replaceReved : true,//允许替换, 已经被替换过的文件
+                    replaceReved : false,//允许替换, 已经被替换过的文件
                     // 通过hash替换
                     // "/css/style.css" => "/dist/css/style-1d87bebe.css"
                     //"/js/script1.js" => "/dist/script1-61e0be79.js"
                     dirReplacements : {
-                        '../dist/css':'../dist/css',//key参数是html中要替换的东西
+                        '../css':'../css',//key参数是html中要替换的东西
                         // '../dist/js':'../dist/js',
                         // 'cdn': function(manifest_value){
                         //     return '//cdn' + (Math.floor(Math.random() * 9) + 1) + '.' + 'exsample.dot' + '/img/' + manifest_value;
