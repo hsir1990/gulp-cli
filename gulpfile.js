@@ -41,6 +41,8 @@ let cssGulp = require('./gulp/module/css');
 let jsGulp = require('./gulp/module/js');
 // 压缩sass
 let sassGulp = require('./gulp/module/sass');
+// 压缩图片
+let imgGulp = require('./gulp/module/img');
 // 启动服务
 let serverGulp = require('./gulp/server');
 // 链接远程ssh 
@@ -56,7 +58,7 @@ function aa(){
 // gulp.task('series', gulp.series('text'));
 gulp.task('aa', gulp.series(aa))
 // 并行
-gulp.task('parallel', gulp.series(sassGulp, cssGulp, jsGulp,  htmlGulp, serverGulp));
+gulp.task('parallel', gulp.series(sassGulp, cssGulp, jsGulp,  htmlGulp, imgGulp, serverGulp));
 
 // 传送服务器
 gulp.task('ssh', gulp.series(sshGulp))
