@@ -47,18 +47,40 @@ let imgGulp = require('./gulp/module/img');
 let serverGulp = require('./gulp/server');
 // 链接远程ssh 
 let sshGulp = require('./gulp/ssh');
+// 查看配置
+let config = require('./config')
 
+// 清除目录
 function aa(){
     return  gulp.src('./dist/css', {read: true})
         .pipe(clean());
 }
 
+
+// 监听
+function watch(){
+    if(config == 'dev'){
+        gulp.watch(PATH_MODULE.css.src, cssGulp);
+        gulp.watch(PATH_MODULE.js.src, jsGulp);
+        gulp.watch(PATH_MODULE.html.src, htmlGulp);
+        gulp.watch(PATH_MODULE.sass.src, sassGulp);
+        gulp.watch(['./resources/js/*.*'], imgGulp); 
+    }     
+}
+
+
 //gulp4新增的两个方法
 // 串行
 // gulp.task('series', gulp.series('text'));
-gulp.task('aa', gulp.series(aa))
+gulp.task('clean', gulp.series(aa))
 // 并行
-gulp.task('parallel', gulp.series(sassGulp, cssGulp, jsGulp,  htmlGulp, imgGulp, serverGulp));
+// gulp.task('parallel', gulp.series(sassGulp, cssGulp, jsGulp,  htmlGulp, imgGulp, serverGulp, watch));
 
 // 传送服务器
 gulp.task('ssh', gulp.series(sshGulp))
+
+//开发监听
+gulp.task('dev', gulp.series(serverGulp, watch));
+
+//构建
+gulp.task('build', gulp.series(sassGulp, cssGulp, jsGulp,  htmlGulp, imgGulp));

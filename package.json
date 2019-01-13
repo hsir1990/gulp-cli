@@ -4,7 +4,8 @@
   "description": "gulp插件测试",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "gulp dev --type dev",
+    "build": "gulp build"
   },
   "repository": {
     "type": "git",
@@ -33,7 +34,8 @@
     "gulp-sass": "^4.0.2",
     "gulp-ssh": "^0.7.0",
     "gulp-uglify-es": "^1.0.4",
-    "gulp-webserver": "^0.9.1"
+    "gulp-webserver": "^0.9.1",
+    "minimist": "^1.2.0"
   },
   "dependencies": {}
 }
