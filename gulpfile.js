@@ -24,7 +24,7 @@ global.PATH_MODULE = {
     },
     // js
     js:{
-        src: ['./resources/js/*.js'],
+        src: ['resources/js/*.js'],
         dist:['./dist/js']
     },
     // sass
